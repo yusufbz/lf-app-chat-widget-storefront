@@ -20,9 +20,9 @@ function addWidgetStyle(widgetData) {
 
 	styleTag.textContent = `
 	:root{
-		--brandColor: ${widgetData.style.brandColor};
-		--textColor: ${widgetData.style.textColor};
-		--position: ${widgetData.style.textColor};
+		--brandColor: #${widgetData.style.brandColor};
+		--textColor: #${widgetData.style.textColor};
+		--position: ${widgetData.style.position};
 	}
 	`
 	document.head.appendChild(styleTag);
