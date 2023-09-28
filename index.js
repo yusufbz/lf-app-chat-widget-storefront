@@ -32,7 +32,7 @@ function createWidget(widgetData) {
 	console.log("creating widget…")
 	// SECTION
 	const section = document.createElement('section');
-	section.className = `chat-widget___${widgetData._id}`
+	section.className = `chat-widget___`
 	const container = document.createElement('div');
 	container.className = "container"
 	// BTN
