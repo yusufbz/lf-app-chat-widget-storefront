@@ -17,181 +17,14 @@ async function fetchData() {
 function addWidgetStyle(widgetData) {
 	console.log("adding styles…")
 	const styleTag = document.createElement('style');
+
 	styleTag.textContent = `
-		.chat-widget___${widgetData._id} {
-			position: relative;
-			margin: 0;
-			padding: 0;
-			font-family: Inter;
-			z-index: 1;
-		}
-		
-		.chat-widget___${widgetData._id} .container{
-			position: fixed;
-			width: 100%;
-			bottom: 0px;
-			left: 0px;
-			padding: 20px;
-			z-index: 99999;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			justify-content: flex-end;
-			align-items: ${widgetData.style.position};
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal {
-			width: 100%;
-			max-width: 380px;
-			margin-bottom: 20px;
-			background-color: white;
-			display: flex;
-			flex-direction: column;
-			justify-content: stretch;
-			border-radius: 12px;
-			box-shadow: rgba(5, 24, 20, 0.13) 0px 4px 20px 0px;
-			overflow: hidden;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header {
-			position: relative;
-			padding: 24px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			background-color: #${widgetData.style.brandColor};
-		
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header .logo {
-			width: 40px;
-			height: 40px;
-			margin-right: 24px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header .content {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: stretch;
-			gap: 8px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header .content .title {
-			font-size: 18px;
-			line-height: 130%;
-			font-weight: 500;
-			color: #${widgetData.style.textColor};
-		
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header .content .description {
-			font-size: 14px;
-			line-height: 150%;
-			font-weight: 400;
-			color: #${widgetData.style.textColor};
-			opacity: 70%;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .header .chat-close-modal {
-			width: 24px;
-			height: 24px;
-			position: absolute;
-			top: 16px;
-			right: 16px;
-			opacity: 50%;
-		}
-
-		.chat-widget___${widgetData._id} .chat-modal .header .chat-close-modal:hover {
-			opacity: 100%;
-		}
-
-		.chat-widget___${widgetData._id} .chat-modal .modal-content{
-			display: flex;
-			flex-direction: column;
-			justify-content: stretch;
-			padding: 24px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .response-time {
-			font-size: 14px;
-			line-height: 150%;
-			font-weight: 400;
-			color: #051814;
-			margin-bottom: 20px;
-			opacity: 70%;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents {
-			display: flex;
-			flex-direction: column;
-			justify-content: stretch;
-			gap: 16px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent {
-			width: 100%;
-			padding: 16px;
-			background-color: #f1f5f8;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			border-style: solid;
-			border-width: 0px 0px 0px 4px;
-			border-color: #${widgetData.style.brandColor};
-			border-radius: 8px;
-		}
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents a{
-			text-decoration: none;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent .avatar {
-			width: 48px;
-			height: 48px;
-			margin-right: 16px;
-			border-radius: 50%;
-			object-fit: cover;
-		}
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent > div{
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			gap: 4px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent > div * {
-			font-size: 14px;
-			line-height: 18px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent > div label {
-			font-weight: 600;
-			color: #051814;
-		
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent>div p {
-			color: #475851;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-modal .modal-content .agents .agent >div img {
-			width: 24px;
-			height: 24px;
-		}
-		
-		.chat-widget___${widgetData._id} .chat-widget-btn {
-			background-color: #${widgetData.style.brandColor};
-			width: fit-content;
-			height: fit-content;
-			min-width: 64px;
-			min-height: 64px;
-			border-radius: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		`;
-
+	:root{
+		--brandColor: ${widgetData.style.brandColor};
+		--textColor: ${widgetData.style.textColor};
+		--position: ${widgetData.style.textColor};
+	}
+	`
 	document.head.appendChild(styleTag);
 }
 
@@ -285,3 +118,178 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.error('Error fetching data:', error);
 	})
 })
+
+// styleTag.textContent = `
+// .chat-widget___ {
+// 	position: relative;
+// 	margin: 0;
+// 	padding: 0;
+// 	font-family: Inter;
+// 	z-index: 1;
+// }
+
+// .chat-widget___ .container{
+// 	position: fixed;
+// 	width: 100%;
+// 	bottom: 0px;
+// 	left: 0px;
+// 	padding: 20px;
+// 	z-index: 99999;
+// 	display: flex;
+// 	flex-direction: column;
+// 	height: 100%;
+// 	justify-content: flex-end;
+// 	align-items: var(--position);
+// }
+
+// .chat-widget___ .chat-modal {
+// 	width: 100%;
+// 	max-width: 380px;
+// 	margin-bottom: 20px;
+// 	background-color: white;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: stretch;
+// 	border-radius: 12px;
+// 	box-shadow: rgba(5, 24, 20, 0.13) 0px 4px 20px 0px;
+// 	overflow: hidden;
+// }
+
+// .chat-widget___ .chat-modal .header {
+// 	position: relative;
+// 	padding: 24px;
+// 	display: flex;
+// 	flex-direction: row;
+// 	align-items: center;
+// 	background-color: var(--brandColor);
+
+// }
+
+// .chat-widget___ .chat-modal .header .logo {
+// 	width: 40px;
+// 	height: 40px;
+// 	margin-right: 24px;
+// }
+
+// .chat-widget___ .chat-modal .header .content {
+// 	width: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: stretch;
+// 	gap: 8px;
+// }
+
+// .chat-widget___ .chat-modal .header .content .title {
+// 	font-size: 18px;
+// 	line-height: 130%;
+// 	font-weight: 500;
+// 	color: var(--textColor);
+
+// }
+
+// .chat-widget___ .chat-modal .header .content .description {
+// 	font-size: 14px;
+// 	line-height: 150%;
+// 	font-weight: 400;
+// 	color: var(--textColor);
+// 	opacity: 70%;
+// }
+
+// .chat-widget___ .chat-modal .header .chat-close-modal {
+// 	width: 24px;
+// 	height: 24px;
+// 	position: absolute;
+// 	top: 16px;
+// 	right: 16px;
+// 	opacity: 50%;
+// }
+
+// .chat-widget___ .chat-modal .header .chat-close-modal:hover {
+// 	opacity: 100%;
+// }
+
+// .chat-widget___ .chat-modal .modal-content{
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: stretch;
+// 	padding: 24px;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .response-time {
+// 	font-size: 14px;
+// 	line-height: 150%;
+// 	font-weight: 400;
+// 	color: #051814;
+// 	margin-bottom: 20px;
+// 	opacity: 70%;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: stretch;
+// 	gap: 16px;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent {
+// 	width: 100%;
+// 	padding: 16px;
+// 	background-color: #f1f5f8;
+// 	display: flex;
+// 	flex-direction: row;
+// 	align-items: center;
+// 	border-style: solid;
+// 	border-width: 0px 0px 0px 4px;
+// 	border-color: var(--brandColor);
+// 	border-radius: 8px;
+// }
+// .chat-widget___ .chat-modal .modal-content .agents a{
+// 	text-decoration: none;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent .avatar {
+// 	width: 48px;
+// 	height: 48px;
+// 	margin-right: 16px;
+// 	border-radius: 50%;
+// 	object-fit: cover;
+// }
+// .chat-widget___ .chat-modal .modal-content .agents .agent > div{
+// 	width: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	gap: 4px;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent > div * {
+// 	font-size: 14px;
+// 	line-height: 18px;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent > div label {
+// 	font-weight: 600;
+// 	color: #051814;
+
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent>div p {
+// 	color: #475851;
+// }
+
+// .chat-widget___ .chat-modal .modal-content .agents .agent >div img {
+// 	width: 24px;
+// 	height: 24px;
+// }
+
+// .chat-widget___ .chat-widget-btn {
+// 	background-color: var(--brandColor);
+// 	width: fit-content;
+// 	height: fit-content;
+// 	min-width: 64px;
+// 	min-height: 64px;
+// 	border-radius: 100%;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// }
+// `;
