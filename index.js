@@ -1,6 +1,6 @@
 async function fetchData() {
 	console.log("fetching…")
-	const response = await fetch('https://133a-102-78-98-118.ngrok-free.app/widget/storeFront/getWidget', {
+	const response = await fetch('https://lf-app-chat-widget-backend-production.up.railway.app/widget/storeFront/getWidget', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
