@@ -15,7 +15,7 @@ async function fetchData() {
 }
 
 function addWidgetStyle(widgetData) {
-	console.log("adding styles…")
+	console.log("adding styles...")
 	const styleTag = document.createElement('style');
 
 	styleTag.textContent = `
