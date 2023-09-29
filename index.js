@@ -99,10 +99,10 @@ function createWidget(widgetData) {
 
 	function toggleChatWidget() {
 		console.log(modal.style.display)
-		if (modal.style.display !== "none")
-			modal.style.setProperty("display", "block", "important")
-		else
+		if (modal.style.display == "flex")
 			modal.style.setProperty("display", "none", "important")
+		else
+			modal.style.setProperty("display", "flex", "important")
 	}
 
 	btn.addEventListener("click", toggleChatWidget);
